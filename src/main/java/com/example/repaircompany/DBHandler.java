@@ -60,4 +60,14 @@ public class DBHandler {
         }
         return newIdUser;
     }
+
+    public static void deleteRowRequest(int idRequest){
+        String query = "DELETE FROM request WHERE idRequest = " + idRequest;
+        try{
+            PreparedStatement prSt = getDbConnection().prepareStatement(query);
+            prSt.executeUpdate();
+        }catch(SQLException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
 }

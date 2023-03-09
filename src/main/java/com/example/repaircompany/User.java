@@ -17,6 +17,7 @@ public class User {
     @FXML private Label welcome;
     @FXML private Button newRequest;
     @FXML private Button myRequest;
+    @FXML private Button deleteRequest;
     @FXML private Pane requestPane;
     @FXML private Button createRequest;
     @FXML private Button backBtn;
@@ -41,6 +42,21 @@ public class User {
 
     @FXML
     void initialize(){
+        try {
+            if(HelloController.idUser == 0){
+                ResultSet resSet = DBHandler.getDbConnection().createStatement().executeQuery("SELECT * FROM users WHERE idUser" + HelloController.newIdUser);
+                while(resSet.next()){
+                    welcome.setText("Добро пожаловать, /n" + resSet.getString("name"));
+                }
+            }else{
+                ResultSet resSet = DBHandler.getDbConnection().createStatement().executeQuery("SELECT * FROM users WHERE idUser" + HelloController.idUser);
+                while(resSet.next()){
+                    welcome.setText("Добро пожаловать, /n" + resSet.getString("name"));
+                }
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
         initWorker();
         initRequest();
         idRequest.setCellValueFactory(new PropertyValueFactory<>("idRequest"));
@@ -48,6 +64,7 @@ public class User {
         message.setCellValueFactory(new PropertyValueFactory<>("message"));
         worker.setCellValueFactory(new PropertyValueFactory<>("worker"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        requestTable.setItems(requests);
         newRequest.setOnAction(actionEvent -> {
             requestPane.setVisible(true);
             createRequest.setOnAction(addEvent -> {
@@ -72,8 +89,16 @@ public class User {
                     notice.setText("Пожалуйста, заполните все поля и выберите работника");
                 }
             });
-            backBtn.setOnAction(backEvent -> {
-                requestPane.setVisible(false);
+            backBtn.setOnAction(backEvent -> requestPane.setVisible(false));
+        });
+
+        myRequest.setOnAction(actionEvent -> {
+            requestTable.setVisible(true);
+            deleteRequest.setVisible(true);
+            deleteRequest.setOnAction(deleteEvent -> {
+                selectedRequest = requestTable.getSelectionModel().getSelectedItem();
+                DBHandler.deleteRowRequest(selectedRequest.getIdRequest());
+                requestTable.getItems().remove(selectedRequest);
             });
         });
     }
@@ -81,8 +106,16 @@ public class User {
     private void initRequest(){
         try{
             Connection dbConnection = DBHandler.getDbConnection();
-            ResultSet resSet = dbConnection.createStatement().executeQuery("SELECT idRequest, object, message, (SELECT name FROM workers where idWorker = 1), date FROM request");
-            while(resSet.next()){
+            if(HelloController.idUser == 0){
+                ResultSet resSet = dbConnection.createStatement().executeQuery("SELECT request.idRequest, request.object, request.message, workers.name, request.date FROM repaircompany.request inner join repaircompany.workers on request.idWorker = workers.idWorker where idUser = " + HelloController.newIdUser);
+                while(resSet.next()){
+                    requests.add(new requestDB(resSet.getInt("idRequest"), resSet.getString("object"), resSet.getString("message"), resSet.getString("name"), resSet.getString("date")));
+                }
+            }else{
+                ResultSet resSet = dbConnection.createStatement().executeQuery("SELECT request.idRequest, request.object, request.message, workers.name, request.date FROM repaircompany.request inner join repaircompany.workers on request.idWorker = workers.idWorker where idUser = " + HelloController.idUser);
+                while(resSet.next()){
+                    requests.add(new requestDB(resSet.getInt("idRequest"), resSet.getString("object"), resSet.getString("message"), resSet.getString("workers.name"), resSet.getString("date")));
+                }
             }
         }catch(Exception ex){
             ex.printStackTrace();

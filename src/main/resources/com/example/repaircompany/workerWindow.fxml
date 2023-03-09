@@ -7,5 +7,16 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.repaircompany.Worker" prefHeight="400.0" prefWidth="600.0">
-
+<children>
+    <Label fx:id="welcome" layoutX="286.0" layoutY="34.0" text="Label" />
+    <TableView fx:id="requestTable" layoutX="151.0" layoutY="231.0" prefHeight="155.0" prefWidth="326.0">
+        <columns>
+            <TableColumn fx:id="idRequest" prefWidth="48.0" text="Номер" />
+            <TableColumn fx:id="object" prefWidth="79.0" text="Предмет" />
+            <TableColumn fx:id="message" prefWidth="98.0" text="Описание" />
+            <TableColumn fx:id="user" prefWidth="100.0" text="Заказчик" />
+            <TableColumn fx:id="date" prefWidth="75.0" text="Дата" />
+        </columns>
+    </TableView>
+</children>
 </AnchorPane>
