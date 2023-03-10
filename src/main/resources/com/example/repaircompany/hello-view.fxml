@@ -3,22 +3,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.repaircompany.HelloController">
+<AnchorPane fx:id="helloPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC0CB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.repaircompany.HelloController">
    <children>
-      <Label layoutX="247.0" layoutY="59.0" text="Добро пожаловать" />
-      <Label layoutX="156.0" layoutY="96.0" text="Пожалуйста, авторизуйтесь или пройдите регистрацию" />
-      <Button fx:id="authBtn" layoutX="265.0" layoutY="200.0" mnemonicParsing="false" text="Авторизация" />
-      <Button fx:id="regBtn" layoutX="266.0" layoutY="248.0" mnemonicParsing="false" text="Регистрация" />
-      <Button fx:id="workBtn" layoutX="460.0" layoutY="142.0" mnemonicParsing="false" text="Войти как работник" />
-      <Button fx:id="enterBtn" layoutX="301.0" layoutY="298.0" mnemonicParsing="false" text="Войти" visible="false" />
-      <TextField fx:id="authLogin" layoutX="234.0" layoutY="167.0" promptText="Логин" visible="false" />
-      <PasswordField fx:id="authPass" layoutX="234.0" layoutY="225.0" promptText="Пароль" visible="false" />
-      <TextField fx:id="regLogin" layoutX="47.0" layoutY="142.0" promptText="Почта" visible="false" />
-      <TextField fx:id="name" layoutX="47.0" layoutY="200.0" promptText="Фамилия Имя Отчество" visible="false" />
-      <TextField fx:id="phone" layoutX="309.0" layoutY="142.0" promptText="Телефон (12345678910)" visible="false" />
-      <PasswordField fx:id="regPass" layoutX="314.0" layoutY="200.0" promptText="Пароль" visible="false" />
-      <PasswordField fx:id="regPass2" layoutX="314.0" layoutY="248.0" promptText="Повторите пароль" visible="false" />
-      <DatePicker fx:id="birthDate" layoutX="47.0" layoutY="248.0" promptText="Дата рождения" visible="false" />
-      <Label fx:id="message" layoutX="295.0" layoutY="323.0" text="Label" />
+      <Label alignment="CENTER" layoutX="248.0" layoutY="44.0" text="Добро пожаловать" />
+      <Label layoutX="148.0" layoutY="85.0" text="Пожалуйста, авторизуйтесь или пройдите регистрацию" />
+      <Button fx:id="authBtn" layoutX="256.0" layoutY="155.0" mnemonicParsing="false" text="Авторизация" />
+      <Button fx:id="regBtn" layoutX="259.0" layoutY="225.0" mnemonicParsing="false" text="Регистрация" />
+      <Button fx:id="workBtn" layoutX="239.0" layoutY="286.0" mnemonicParsing="false" text="Войти как работник" />
+      <Button fx:id="enterBtn" layoutX="278.0" layoutY="311.0" mnemonicParsing="false" text="Войти" visible="false" />
+      <TextField fx:id="authLogin" layoutX="226.0" layoutY="168.0" promptText="Логин" visible="false" />
+      <PasswordField fx:id="authPass" layoutX="228.0" layoutY="225.0" promptText="Пароль" visible="false" />
+      <TextField fx:id="regLogin" layoutX="74.0" layoutY="142.0" promptText="Почта" visible="false" />
+      <TextField fx:id="name" layoutX="74.0" layoutY="194.0" promptText="Фамилия Имя Отчество" visible="false" />
+      <TextField fx:id="phone" layoutX="381.0" layoutY="142.0" promptText="Телефон (12345678910)" visible="false" />
+      <PasswordField fx:id="regPass" layoutX="381.0" layoutY="194.0" promptText="Пароль" visible="false" />
+      <PasswordField fx:id="regPass2" layoutX="381.0" layoutY="246.0" promptText="Повторите пароль" visible="false" />
+      <DatePicker fx:id="birthDate" layoutX="61.0" layoutY="246.0" promptText="Дата рождения" visible="false" />
+      <Label fx:id="message" layoutX="289.0" layoutY="286.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

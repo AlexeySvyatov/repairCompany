@@ -1,21 +1,21 @@
 package com.example.repaircompany;
 
-public class requestDB {
+public class requestWDB {
     public Integer idRequest;
     public String object;
     public String message;
-    public String worker;
+    public String user;
     public String date;
 
-    public requestDB(Integer idRequest, String object, String message, String worker, String date){
+    public requestWDB(Integer idRequest, String object, String message, String user, String date){
         this.idRequest = idRequest;
         this.object = object;
         this.message = message;
-        this.worker = worker;
+        this.user = user;
         this.date = date;
     }
 
-    public requestDB(){}
+    public requestWDB(){}
 
     public Integer getIdRequest(){return idRequest;}
     public void setIdRequest(Integer idRequest) {this.idRequest = idRequest;}
@@ -26,8 +26,8 @@ public class requestDB {
     public String getMessage(){return message;}
     public void setMessage(String message){this.message = message;}
 
-    public String getWorker(){return worker;}
-    public void setWorker(String worker){this.worker = worker;}
+    public String getUser(){return user;}
+    public void setUser(String user){this.user = user;}
 
     public String getDate(){return date;}
     public void setDate(String date){this.date = date;}

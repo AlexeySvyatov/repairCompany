@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.repaircompany.Worker" prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="workerPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC0CB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.repaircompany.Worker">
+    <children>
+        <Label fx:id="welcome" alignment="CENTER" layoutX="229.0" layoutY="36.0" textAlignment="CENTER" wrapText="true" />
+        <TableView fx:id="requestTable" layoutX="50.0" layoutY="227.0" prefHeight="155.0" prefWidth="500.0">
+            <columns>
+                <TableColumn fx:id="idRequest" prefWidth="45.0" text="Номер" />
+                <TableColumn fx:id="object" prefWidth="87.0" text="Предмет" />
+                <TableColumn fx:id="message" prefWidth="124.0" text="Описание" />
+                <TableColumn fx:id="user" prefWidth="163.0" text="Заказчик" />
+                <TableColumn fx:id="date" text="Дата" />
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>

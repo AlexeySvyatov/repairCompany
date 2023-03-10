@@ -3,29 +3,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.repaircompany.User">
-   <children>
-      <Label fx:id="welcome" layoutX="286.0" layoutY="34.0" text="Label" />
-      <Button fx:id="newRequest" layoutX="252.0" layoutY="84.0" mnemonicParsing="false" text="Создать заявку" />
-      <Button fx:id="myRequest" layoutX="260.0" layoutY="147.0" mnemonicParsing="false" text="Мои заявки" />
-      <Pane fx:id="requestPane" layoutX="156.0" layoutY="67.0" prefHeight="295.0" prefWidth="290.0" visible="false">
-         <children>
-            <Button fx:id="createRequest" layoutX="177.0" layoutY="253.0" mnemonicParsing="false" text="Создать заявку" />
-            <ComboBox fx:id="workerCB" layoutX="70.0" layoutY="14.0" prefWidth="150.0" promptText="Исполнитель" />
-            <TextField fx:id="objectField" layoutX="71.0" layoutY="57.0" promptText="Объект починки" />
-            <TextArea fx:id="messageField" layoutX="85.0" layoutY="100.0" prefHeight="65.0" prefWidth="120.0" promptText="Дополнительная   информация" wrapText="true" />
-            <Label fx:id="notice" layoutX="33.0" layoutY="177.0" prefHeight="52.0" prefWidth="224.0" textAlignment="CENTER" wrapText="true" />
-            <Button fx:id="backBtn" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" text="Назад" />
-         </children>
-      </Pane>
-      <TableView fx:id="requestTable" layoutX="151.0" layoutY="231.0" prefHeight="155.0" prefWidth="326.0" visible="false">
-        <columns>
-          <TableColumn fx:id="idRequest" prefWidth="48.0" text="Номер" />
-          <TableColumn fx:id="object" prefWidth="79.0" text="Предмет" />
-            <TableColumn fx:id="message" prefWidth="98.0" text="Описание" />
-            <TableColumn fx:id="worker" prefWidth="100.0" text="Исполнитель" />
-            <TableColumn fx:id="date" prefWidth="75.0" text="Дата" />
-        </columns>
-      </TableView>
-   </children>
+<AnchorPane fx:id="userPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFC0CB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.repaircompany.User">
+    <children>
+        <Label fx:id="welcome" alignment="CENTER" layoutX="229.0" layoutY="36.0" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="newRequest" layoutX="252.0" layoutY="84.0" mnemonicParsing="false" text="Создать заявку" />
+        <Button fx:id="myRequest" layoutX="260.0" layoutY="147.0" mnemonicParsing="false" text="Мои заявки" />
+        <Pane fx:id="requestPane" layoutX="156.0" layoutY="67.0" prefHeight="295.0" prefWidth="290.0" visible="false">
+            <children>
+                <Button fx:id="createRequest" layoutX="177.0" layoutY="253.0" mnemonicParsing="false" text="Создать заявку" />
+                <ComboBox fx:id="workerCB" layoutX="70.0" layoutY="14.0" prefWidth="150.0" promptText="Исполнитель" />
+                <TextField fx:id="objectField" layoutX="71.0" layoutY="57.0" promptText="Объект починки" />
+                <TextArea fx:id="messageField" layoutX="85.0" layoutY="100.0" prefHeight="65.0" prefWidth="120.0" promptText="Дополнительная   информация" wrapText="true" />
+                <Label fx:id="notice" layoutX="33.0" layoutY="177.0" prefHeight="52.0" prefWidth="224.0" textAlignment="CENTER" wrapText="true" />
+                <Button fx:id="backBtn" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" text="Назад" />
+            </children>
+        </Pane>
+        <Button fx:id="deleteRequest" layoutX="451.0" layoutY="200.0" mnemonicParsing="false" text="Удалить заявку" visible="false" />
+        <TableView fx:id="requestTable" layoutX="50.0" layoutY="227.0" prefHeight="155.0" prefWidth="500.0" visible="false">
+            <columns>
+                <TableColumn fx:id="idRequest" prefWidth="45.0" text="Номер" />
+                <TableColumn fx:id="object" prefWidth="87.0" text="Предмет" />
+                <TableColumn fx:id="message" prefWidth="119.0" text="Описание" />
+                <TableColumn fx:id="worker" prefWidth="167.0" text="Исполнитель" />
+                <TableColumn fx:id="date" prefWidth="81.0" text="Дата" />
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>

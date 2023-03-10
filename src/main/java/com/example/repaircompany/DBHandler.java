@@ -60,4 +60,41 @@ public class DBHandler {
         }
         return newIdUser;
     }
+
+    public static void deleteRowRequest(int idRequest){
+        String query = "DELETE FROM request WHERE idRequest = " + idRequest;
+        try{
+            PreparedStatement prSt = getDbConnection().prepareStatement(query);
+            prSt.executeUpdate();
+        }catch(SQLException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public static void deleteRowWorker(int idWorker){
+        String query = "DELETE FROM workers WHERE idWorker = " + idWorker;
+        try{
+            PreparedStatement prSt = getDbConnection().prepareStatement(query);
+            prSt.executeUpdate();
+        }catch(SQLException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public static void newWorker(int id, String login, String password, String name, String phone, DatePicker date){
+        Date workerDate = Date.valueOf(date.getValue());
+        String query = "INSERT INTO workers(idWorker, login, password, name, phone, birthDate) VALUES(?, ?, ?, ?, ?, ?)";
+        try{
+            PreparedStatement prSt = getDbConnection().prepareStatement(query);
+            prSt.setInt(1, id);
+            prSt.setString(2, login);
+            prSt.setString(3, password);
+            prSt.setString(4, name);
+            prSt.setString(5, phone);
+            prSt.setDate(6, workerDate);
+            prSt.executeUpdate();
+        }catch(SQLException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
 }
